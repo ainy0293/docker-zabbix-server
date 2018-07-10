@@ -1,0 +1,99 @@
+version: "2"
+services:
+  mysql-server:
+    build: docker-mysql-5.5.42
+      # context: .
+      # dockerfile: docker-mysql-5.5.42/Dockerfile
+      # args:
+      #   test1: 1
+      #   test2: 2
+      #   - test1=1
+      #   - test2=2
+    image: zabbix/mysql
+    hostname: mysql-server
+    networks:
+      - zabbix
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      # - /usr/local/mysql/data/
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+    ports:
+      - "3306:3306"
+
+  fpm-server:
+    build: docker-php-fpm
+      # context: .
+      # dockerfile: docker-php-fpm/Dockerfile
+      # args:
+      #   test1: 1
+      #   test2: 2
+      #   - test1=1
+      #   - test2=2
+    image: zabbix/php-fpm
+    hostname: fpm-server
+    depends_on:
+      - mysql-server
+    networks:
+      - zabbix
+    volumes_from:
+      - mysql-server
+      # - nginx-server
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/www/html/web/zabbix/:/usr/local/nginx/html/
+    ports:
+      - "9000"
+
+  nginx-server:
+    build: docker-nginx-fancyindex
+      # context: .
+      # dockerfile: docker-nginx-fancyindex/Dockerfile
+      # args:
+      #   test1: 1
+      #   test2: 2
+      #   - test1=1
+      #   - test2=2
+    image: zabbix/nginx
+    hostname: nginx-server
+    depends_on:
+      - fpm-server
+    networks:
+      - zabbix
+    volumes_from:
+      - mysql-server
+      - fpm-server
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/www/html/web/zabbix/:/usr/local/nginx/html/
+    ports:
+      - "80:80"
+      - "443:443"
+
+
+  zabbix-server:
+    build: docker-zabbix
+      # context: .
+      # dockerfile: docker-zabbix/Dockerfile
+      # args:
+      #   test1: 1
+      #   test2: 2
+      #   - test1=1
+      #   - test2=2
+    image: zabbix/server
+    hostname: zabbix-server
+    depends_on:
+      - mysql-server
+      - fpm-server
+      - nginx-server
+    networks:
+      - zabbix
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "10051:10051"
+
+networks:
+  zabbix:
+    driver: bridge
+
