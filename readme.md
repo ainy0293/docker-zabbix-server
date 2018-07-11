@@ -24,7 +24,7 @@ The list is as follows.
 
  - nginx
 
-> **nginx** : A web server, Configure monitoring services and monitoring hosts, and display and view graphics.
+> **nginx** : A web server, Configure monitoring services and monitoring hosts, and display and view graphics.
 
  - php
 
