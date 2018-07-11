@@ -8,7 +8,7 @@ Zabbix is Open Source and comes at no cost.
 
 > [https://www.zabbix.com](https://www.zabbix.com)
 
-## [中文说明](https://github.com/ainy0293/docker-zabbix-server/zh_cn)
+## [中文说明](https://github.com/ainy0293/docker-zabbix-server/tree/master/zh_cn)
 
 ***
 
@@ -22,7 +22,7 @@ A total of 4 containers for this service.
 
 The list is as follows.
 
- - nginx
+ - nginx
 
 > **nginx** : A web server, Configure monitoring services and monitoring hosts, and display and view graphics.
 
