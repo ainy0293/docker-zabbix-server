@@ -1,12 +1,14 @@
 # docker-zabbix-server
 
-***
-
 ### Synopsis
 
-Zabbix is monitor
+Zabbix is the ultimate enterprise-level software designed for real-time monitoring of millions of metrics collected from tens of thousands of servers, virtual machines and network devices.  
+
+Zabbix is Open Source and comes at no cost.
 
 > [https://www.zabbix.com](https://www.zabbix.com)
+
+## [中文说明](https://github.com/ainy0293/docker-zabbix-server/zh_cn)
 
 ***
 
@@ -14,9 +16,33 @@ This a Zabbix server use docker container.
 
 The components include nginx web server,  MySQL database service and  PHP
 
+***
+
+A total of 4 containers for this service. 
+
+The list is as follows.
+
+ - nginx
+
+> **nginx** : A web server, Configure monitoring services and monitoring hosts, and display and view graphics.
+
+ - php
+
+> **php** : Because ZABBIX pages use PHP programs, parsing these pages requires PHP.  **This PHP container has supported most of the PHP's most commonly used functions, as well as php-redis and php-memcached.**
+
+ - mysql
+
+ > **MySQL** : Store monitoring, host, graphics, and other data
+
+  - zabbix
+
+> **zabbix** : ZABBIX Server program
+
+***
+
 #### Use service:
 
-Please ```pip``` , ```apt-get``` or ```yum``` install docker-compose
+Please use ```pip``` , ```apt-get``` or ```yum``` command install **docker-compose**
 
 Use the command on the following platform
 
@@ -34,15 +60,17 @@ Use the command on the following platform
 	# Get a series of code for docker
 	git clone https://github.com/ainy0293/docker-zabbix-server.git
 
-	# uild and start the container
+	# build and start the container
 	cd docker-zabbix-server
 	docker-compose up -d
 
 The above operation will automatically build the docker image and start the container.
 
-Use the browser to visit: 
+After the command is completed, Use the browser to visit: 
 
-	http:yourip
+	http://yourip
+
+***
 
 ### Other information  
 
@@ -64,4 +92,9 @@ Password: 123456
 
 	/var/www/html/web/zabbix/:/usr/local/nginx/html/
 
-END
+##### Version
+
+ - Nginx: 1.10.1
+ - MySQL: 5.5.42
+ - PHP: 5.6.22
+ - Zabbix: 3.4.11
