@@ -83,7 +83,9 @@ Zabbix password: zabbix
 
 ##### MySQL 
 Allow Host: %
+
 User: root
+
 Password: 123456
 
 ##### VOLUMES volume mapping

@@ -3,7 +3,7 @@
 
 dir_null=$(ls /usr/local/nginx/html/)
 
-if [ -z $dir_null ]; then
+if [[ -z $dir_null ]]; then
 	mv /usr/local/src/php/* /usr/local/nginx/html/
     #chmod -R 777 /usr/local/nginx/html
     cat > /usr/local/nginx/html/conf/zabbix.conf.php << EOF
