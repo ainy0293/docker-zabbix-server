@@ -33,7 +33,8 @@ if [ -z $dir_null -o "$dir_null" == "test" ]; then
 	/usr/local/mysql/scripts/mysql_install_db --defaults-file=/etc/my.cnf --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data --user=mysql
     chgrp mysql /usr/local/mysql/.
 
-	nohup /usr/local/mysql/bin/mysqld --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data --plugin-dir=/usr/local/mysql/lib/plugin --user=mysql --log-error=/usr/local/mysql/data/mysql-server.err --open-files=65535 --pid-file=/usr/local/mysql/data/mysql-server.pid --socket=/tmp/mysql.sock --port=3306 > /dev/null 2>&1 &
+	# nohup /usr/local/mysql/bin/mysqld --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data --plugin-dir=/usr/local/mysql/lib/plugin --user=mysql --log-error=/usr/local/mysql/data/mysql-server.err --open-files=65535 --pid-file=/usr/local/mysql/data/mysql-server.pid --socket=/tmp/mysql.sock --port=3306 > /dev/null 2>&1 &
+    /etc/init.d/mysql start
 	
 	while true
 		do
@@ -59,17 +60,16 @@ if [ -z $dir_null -o "$dir_null" == "test" ]; then
 	# kill $(cat /usr/local/mysql/data/mysql-server.pid)
     /etc/init.d/mysql stop
     sleep 1
-    while true
-        do
-            if /usr/local/mysql/bin/mysql -uroot -e "SELECT VERSION()" > /dev/null 2>&1; then
-                sleep 2
-                continue
-            else
-                sleep 1
-                break
-            fi
-        done
-    sleep 1
+    # while true
+    #     do
+    #         if /usr/local/mysql/bin/mysql -uroot -e "SELECT VERSION()" > /dev/null 2>&1; then
+    #             sleep 2
+    #             continue
+    #         else
+    #             sleep 1
+    #             break
+    #         fi
+    #     done
 
 	rm -f /tmp/mysql.sock.lock
 	/usr/local/mysql/bin/mysqld_safe
