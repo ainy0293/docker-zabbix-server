@@ -37,7 +37,7 @@ do apt-get install -y $packages --force-yes; done
 #check file
 if [ ! -f src.tar.gz ]; then
 	echo "File src.tar.gz don't exist, download now!"
-	wget -c http://ocwljlzzv.bkt.clouddn.com/soft/src.tar.gz
+	wget -c http://dn.ifmx.cc/soft/src.tar.gz
 fi
 sleep 1
 

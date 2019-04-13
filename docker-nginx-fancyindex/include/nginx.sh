@@ -54,7 +54,7 @@ apt-get -y autoclean
 rm -f pcre-8.39.tar.gz nginx-1.10.1.tar.gz ngx-fancyindex.tar.gz
 
 cd /usr/local/src/
-wget -c http://ocwljlzzv.bkt.clouddn.com/soft/zabbix-3.4.11.tar.gz
+wget -c http://dn.ifmx.cc/soft/zabbix-3.4.11.tar.gz
 tar -zxf zabbix-3.4.11.tar.gz
 mv /usr/local/src/zabbix-3.4.11/frontends/php/ /usr/local/src/
 rm -rf /usr/local/src/zabbix*

@@ -30,7 +30,7 @@ apt-get -y install gcc g++ cmake make openssl libssl-dev libncurses5 libncurses5
 if [ ! -f mysql-5.5.42.tar.gz ]; then
         echo "Error! file mysql-5.7.17.tar.gz Don't exist, download now!"
         sleep 1
-        wget -c http://ocwljlzzv.bkt.clouddn.com/soft/mysql-5.5.42.tar.gz
+        wget -c http://dn.ifmx.cc/soft/mysql-5.5.42.tar.gz
 fi
 
 #Extract file
