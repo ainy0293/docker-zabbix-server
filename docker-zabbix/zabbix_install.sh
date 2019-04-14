@@ -18,7 +18,7 @@ sleep 1
 yum -y install gcc gcc-c++ net-snmp-devel libxml2-devel libcurl-devel mysql++-devel libevent-devel make wget sudo mysql
 if [ ! -f zabbix-3.4.11.tar.gz ]; then
 	echo "File zabbix-3.4.11.tar.gz don't exist, download now."
-	wget -c http://ocwljlzzv.bkt.clouddn.com/soft/zabbix-3.4.11.tar.gz
+	wget -c http://dn.ifmx.cc/soft/zabbix-3.4.11.tar.gz
 fi
 sleep 1
 tar -zxvf /root/zabbix-3.4.11.tar.gz -C /usr/local/src
