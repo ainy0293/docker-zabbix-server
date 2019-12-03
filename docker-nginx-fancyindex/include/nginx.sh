@@ -25,7 +25,7 @@ sleep 2
 if [ ! -f pcre-8.39.tar.gz ]; then
 	echo "File pcre-8.39.tar.gz does not exist! "
 	echo "Begin download pcre-8.39.tar.gz"
-	wget -c ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.39.tar.gz
+	wget -c ftp://ftp.pcre.org/pub/pcre/pcre-8.39.tar.gz
 fi
 if [ ! -f nginx-1.10.1.tar.gz ]; then
 	echo "File nginx-1.10.1.tar.gz does not exist! "
